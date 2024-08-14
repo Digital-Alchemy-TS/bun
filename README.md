@@ -1,43 +1,38 @@
-# 📨 Welcome to the Fastify Adapter Library
+# 📨 Welcome to the Bun Compatibility Library
 
 - [Extended docs](https://docs.digital-alchemy.app)
 - [Discord](https://discord.gg/JkZ35Gv97Y)
 
-This library acts as a simple wrapper for Fastify, allowing it to be configured and loaded by @digital-alchemy workflows
+This library provides some bun specific tooling and fixes for automation apps.
 
 ## 🥡 Import Code
 
 Add as a dependency, and add to your imports. Nice and easy
 
 ```bash
-npm i @digital-alchemy/fastify-extension
+npm i @digital-alchemy/bun
 ```
 
 > **Add to code**
 
 ```typescript
-import { LIB_FASTIFY } from "@digital-alchemy/fastify-extension";
+import { LIB_BUN } from "@digital-alchemy/bun";
 
 // application
 const MY_APP = CreateApplication({
-  libraries: [LIB_FASTIFY],
+  libraries: [LIB_BUN],
   name: "home_automation",
 })
 
 // library
 export const MY_LIBRARY = CreateLibrary({
-  depends: [LIB_FASTIFY],
+  depends: [LIB_BUN],
   name: "special_logic",
 })
 ```
 
 ## 🧲 Usage
 
-```typescript
-export function Example({ fastify }: TServiceParams) {
-  fastify.routes((fastify: FastifyInstance) => {
-    fastify.post("/a", () => { /*...*/ });
-    fastify.get("/b", () => { /*...*/ });
-  });
-}
-```
+This library has no publicly usable logic. Current features:
+
+- `sqlite` shim for `synapse`
